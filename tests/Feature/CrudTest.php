@@ -9,25 +9,17 @@ use Tests\TestCase;
 
 class CrudTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */use RefreshDatabase;
-    // public function test_example()
-    // {
-    //     $response = $this->get('/');
-
-    //     $response->assertStatus(500);
-    // }
+    
+    use RefreshDatabase;
+    
     public function test_list_event_appear_in_homepage() {
         $this-> withExceptionHandling();
         $events = Event::factory(2)->create(); 
         $event = $events[0];
-        $response = $this -> get('/');
+        $response = $this->get('/');
         $response -> assertStatus(200) 
-        -> assertViewIs('home');
-        $response -> assertSee($event->name);
+            ->assertViewIs('home');
+        $response->assertSee($event->name);
     }
     public function test_a_event_can_ba_deleted() {
         $this-> withExceptionHandling();
@@ -35,5 +27,15 @@ class CrudTest extends TestCase
         $this->assertCount(1, Event::all());
         $response = $this->delete(route('delete', $event->id));
         $this->assertCount(0, Event::all());
+    }
+    public function create() {
+        $this-> withExceptionHandling();
+        $response = $this->post(route('storeEvent'), [
+            'name' => 'new name',
+            'description' => 'new description',
+            'spaces' => '20',
+            'image' => 'new image'
+        ]);
+        $this->assertCount(1, Event::all());
     }
 }
