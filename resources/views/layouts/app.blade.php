@@ -15,6 +15,26 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+        <style>
+            body {
+                font-family: 'Nunito', sans-serif;
+              
+            }
+            #card {
+                border: 0.5vw solid black;
+                margin: 1vw;
+                padding: 3vw;
+            }
+            #bodyCards {
+                padding: 5vw;
+                
+            }
+        </style>
+        
 </head>
 <body>
     <div id="app">
