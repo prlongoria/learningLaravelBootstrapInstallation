@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('content')
 <form class="justify-content-center" action="{{ route('storeEvent') }}" method="post">
     @csrf
 <div class="form-group">
@@ -25,3 +26,4 @@
     <button type="submit" class="btn btn-outline-success" value="Create">Create</button>
   </div>
 </form>
+@endsection

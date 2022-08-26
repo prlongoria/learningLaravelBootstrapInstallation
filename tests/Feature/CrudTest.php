@@ -21,14 +21,14 @@ class CrudTest extends TestCase
             ->assertViewIs('home');
         $response->assertSee($event->name);
     }
-    public function test_a_event_can_ba_deleted() {
+    public function test_a_event_can_be_deleted() {
         $this-> withExceptionHandling();
         $event = Event::factory()->create();
         $this->assertCount(1, Event::all());
         $response = $this->delete(route('delete', $event->id));
         $this->assertCount(0, Event::all());
     }
-    public function create() {
+    public function test_a_event_can_be_create() {
         $this-> withExceptionHandling();
         $response = $this->post(route('storeEvent'), [
             'name' => 'new name',

@@ -47,10 +47,15 @@
                         <button type="submit"
                         class="bt-adm m-1 d-flex justify-content-center align-items-center"
                         onclick="return confirm('¿Estás seguro de querer eliminar este evento? {{$event->name}} -ID {{ $event -> id }}')">
-                            <img class="ico-adm"
-                            src="{{ url('https://cdn-icons-png.flaticon.com/128/2371/2371924.png') }}" >
+                            🚮
                         </button>
+                        <a class="bt-adm m-1 d-flex justify-content-center align-items-center"
+                        href="{{ route('editEvent', ['id'=>$event->id]) }}">
+                        📝
+                        </a>
                     </form>
+                    
+                    
                     
                 </div>
             @endforeach

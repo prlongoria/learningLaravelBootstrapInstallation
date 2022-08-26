@@ -61,7 +61,8 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+        return view ('editEvent', compact('event'));
     }
 
     /**
@@ -73,7 +74,9 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = request()->except('_token', '_method');
+        Event::where('id', '=', $id)->update($event);
+        return redirect()->route('home');
     }
 
     /**

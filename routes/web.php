@@ -17,6 +17,10 @@ Route::get('/create', [EventController::class, 'create'])->name('createEvent');
 
 Route::post('/store', [EventController::class, 'store'])->name('storeEvent'); 
 
+//UPDATE:
+Route:: get ('/edit/{id}', [EventController::class, 'edit'])->name('editEvent');
+Route:: patch('/event/{id}', [EventController::class, 'update'])->name('updateEvent');
+
 
 
 
