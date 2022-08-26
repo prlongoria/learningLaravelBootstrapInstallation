@@ -53,6 +53,7 @@
                         href="{{ route('editEvent', ['id'=>$event->id]) }}">
                         📝
                         </a>
+                        <a href="{{ route('showEvent', $event->id) }}">👀</a>
                     </form>
                     
                     
