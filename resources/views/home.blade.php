@@ -1,30 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 <div>
-    <a href="{{ route('createEvent') }}">
-        <p>CREATE NEW EVENT</p>
-    </a>
+    @if (Auth::check() && Auth::user()->isAdmin)
+    <button class="btn btn-primary">
+        <a href="{{ route('createEvent') }}">
+            <p>CREATE NEW EVENT</p>
+        </a>
+    </button>
+    @endif
 </div>
 
 <div id="bodyCards">
@@ -41,6 +26,7 @@
                     <div class="px-6 pt-4 pb-2">
                         <span class="block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $event->spaces }}</span> 
                     </div>
+                    @if (Auth::check() && Auth::user()->isAdmin)
                     <form action="{{ route('delete', ['id' => $event->id]) }}" method="post">
                         @method('delete')
                         @csrf
@@ -53,6 +39,7 @@
                         href="{{ route('editEvent', ['id'=>$event->id]) }}">
                         📝
                         </a>
+                        @endif
                         <a href="{{ route('showEvent', $event->id) }}">👀</a>
                     </form>
                     
