@@ -24,7 +24,8 @@ Route:: patch('/event/{id}', [EventController::class, 'update'])->name('updateEv
 //SHOW:
 Route:: get ('/show/{id}', [EventController::class, 'show'])->name('showEvent');
 
-
-
+//pivot:
+Route:: get('/inscribe/{id}', [EventController::class, 'inscribe'])->name('inscribe')->middleware('auth');
+Route:: get('/cancelInscription/{id}', [EventController::class, 'cancelInscription'])->name('cancelInscription')->middleware('auth');
 
 

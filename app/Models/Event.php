@@ -14,4 +14,8 @@ class Event extends Model
         'image',
         'spaces',
     ];
+
+    public function user() {
+        return $this->belongsToMany(User::class);
+    }
 }

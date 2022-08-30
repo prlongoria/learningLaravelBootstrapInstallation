@@ -24,11 +24,6 @@ class User extends Authenticatable
         'isAdmin',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -42,4 +37,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function event() {
+        return $this->belongsToMany(Event::class);
+    }
 }

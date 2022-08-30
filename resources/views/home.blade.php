@@ -43,7 +43,9 @@
                         <a href="{{ route('showEvent', $event->id) }}">👀</a>
                     </form>
                     
-                    
+                    <button class="text-warning"><a href="{{ route('inscribe', $event->id) }}">Inscribirme</a></button>
+
+                    <button class="text-warning"><a href="{{ route('cancelInscription', $event->id) }}">Desinscribirme</a></button>
                     
                 </div>
             @endforeach
