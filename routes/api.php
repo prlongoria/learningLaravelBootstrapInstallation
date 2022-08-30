@@ -7,3 +7,4 @@ use App\Http\Controllers\Api\EventController;
 
 
 Route::get('/', [EventController::class, 'index'])->name('eventsApi');
+Route::delete('/deleteEvent/{id}', [EventController::class, 'destroy'])->name('destroyEventApi');
