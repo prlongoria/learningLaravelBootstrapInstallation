@@ -92,6 +92,6 @@ class CrudTest extends TestCase
         $event = Event::factory()->create();
         $this->assertCount(1, Event::all());
         $response = $this->get(route('showEvent', $event->id));
-        // $this->assertCount(0, Event::all());
+        $response->assertSee($event->name);
     }
 }

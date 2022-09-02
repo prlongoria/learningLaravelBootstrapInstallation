@@ -40,8 +40,21 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $event = request()->except('_token');
+        //método a: revisar el video por si no está correcto porque no lo he comprobado:
+        // $event = Event::create(
+        //     [
+        //         'name'=>$request()->name;
+        //         'description'=>$request()->description;
+        //         'spaces'=>$request()->spaces;
+        //         'image'=>$request()->image;
+        //     ]
+        // );
+        //return redirect()->route('home');
+
+        //método b:
         Event::create($event);
         return redirect()->route('home');
+        
     }
 
     /**
@@ -96,7 +109,7 @@ class EventController extends Controller
 
     public function inscribe($id) {
         $user = User::find(Auth::id());
-        $event = Event::find(Auth::id());
+        $event = Event::find($id);
 
         $user->event()->attach($event);
         return redirect()->route('home');

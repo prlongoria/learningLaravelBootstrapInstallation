@@ -15,7 +15,7 @@ class EventsTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertStatus(500);
     }
 
     public function test_checkIfEventsAreListedInJsonFile() {
